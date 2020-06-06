@@ -68,9 +68,13 @@ export class HeroesService {
     let heroesArr: Heroe[] = [];
     seach = seach.toLowerCase();
 
-    for(let heroe of this.heores){
+    for(let i=0; i< this.heores.length; i++){
+      let heroe = this.heores[i];
+
       let nombre = heroe.nombre.toLowerCase();
+      
       if(nombre.indexOf(seach) >=0){
+        heroe.idx = i;
         heroesArr.push(heroe)
       }
     }
@@ -84,4 +88,5 @@ export interface Heroe{
   img:String; 
   aparicion: String;
   casa: String;
+  idx?: Number;
 };
